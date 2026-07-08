@@ -1,0 +1,67 @@
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
+
+const navItems = [
+  { to: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
+  { to: '/admin/cars', icon: '🚗', label: 'Manage Cars' },
+  { to: '/admin/categories', icon: '🏷️', label: 'Categories' },
+  { to: '/admin/bookings', icon: '📋', label: 'Bookings' },
+  { to: '/admin/users', icon: '👥', label: 'Users' },
+];
+
+const Sidebar = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    toast.success('Logged out successfully');
+    navigate('/');
+  };
+
+  const initials = user?.full_name
+    ? user.full_name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
+    : 'A';
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-header">
+        <div className="sidebar-logo">🚗</div>
+        <div>
+          <div className="sidebar-brand">QuickReserve</div>
+          <div className="sidebar-subtitle">Admin Panel</div>
+        </div>
+      </div>
+
+      <nav className="sidebar-nav">
+        <div className="sidebar-section-label">Navigation</div>
+        {navItems.map(item => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
+          >
+            <span className="sidebar-icon">{item.icon}</span>
+            {item.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      <div className="sidebar-footer">
+        <div className="sidebar-user">
+          <div className="sidebar-avatar">{initials}</div>
+          <div>
+            <div className="sidebar-user-name">{user?.full_name}</div>
+            <div className="sidebar-user-role">{user?.role}</div>
+          </div>
+        </div>
+        <button onClick={handleLogout} className="btn btn-danger btn-sm btn-full">
+          🚪 Logout
+        </button>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
