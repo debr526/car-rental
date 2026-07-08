@@ -1,4 +1,4 @@
-# 🚗 QuickReserve – Car Rental & Reservation Management System
+#  QuickReserve – Car Rental & Reservation Management System
 
 > A full-stack, production-quality web application demonstrating all **Web Programming II** concepts including Node.js, Express.js, PostgreSQL, RESTful APIs, MVC Architecture, JWT Authentication, bcrypt password hashing, Role-Based Authorization, Logging Middleware, and complete CRUD operations.
 
@@ -8,19 +8,19 @@
 
 | Feature | Description |
 |---------|-------------|
-| 🔐 JWT Auth | Secure login/register with JSON Web Tokens |
-| 🔒 bcrypt | Passwords stored as salted bcrypt hashes |
-| 👥 RBAC | Role-Based Access Control (admin / customer) |
-| 📋 Bookings | Full booking lifecycle with price calculation |
-| 🚗 Fleet Management | Admin CRUD for cars, categories |
-| 📊 Dashboard | Live stats for admin overview |
-| 🔍 Search & Filter | Real-time car search by brand, category, price |
-| 📝 Logger | Custom HTTP logger middleware |
-| 🌐 REST API | 20+ RESTful endpoints |
+|  JWT Auth | Secure login/register with JSON Web Tokens |
+|      bcrypt | Passwords stored as salted bcrypt hashes |
+|     RBAC | Role-Based Access Control (admin / customer) |
+|     Bookings | Full booking lifecycle with price calculation |
+|     Fleet Management | Admin CRUD for cars, categories |
+|     Dashboard | Live stats for admin overview |
+|     Search & Filter | Real-time car search by brand, category, price |
+|     Logger | Custom HTTP logger middleware |
+|     REST API | 20+ RESTful endpoints |
 
 ---
 
-## 🏗️ Technology Stack
+##   Technology Stack
 
 ### Backend
 | Technology | Purpose |
@@ -47,7 +47,7 @@
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 quickreserve/
@@ -129,7 +129,7 @@ quickreserve/
 
 ---
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 - **Node.js** v18 or higher
@@ -207,7 +207,7 @@ The frontend will be available at: `http://localhost:5173`
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 ### Backend `.env`
 
@@ -232,7 +232,7 @@ The frontend will be available at: `http://localhost:5173`
 
 ---
 
-## 👤 Default Admin Credentials
+##  Default Admin Credentials
 
 ```
 Email:    admin@quickreserve.com
@@ -251,17 +251,17 @@ Role:     admin
 |--------|----------|--------|-------------|
 | `POST` | `/api/auth/register` | Public | Register new customer |
 | `POST` | `/api/auth/login` | Public | Login + receive JWT |
-| `GET` | `/api/auth/me` | 🔐 Auth | Get current user info |
+| `GET` | `/api/auth/me` |   Auth | Get current user info |
 
 ### Cars
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
 | `GET` | `/api/cars` | Public | List cars (with filters) |
 | `GET` | `/api/cars/:id` | Public | Get car details |
-| `POST` | `/api/cars` | 👑 Admin | Add new car |
-| `PUT` | `/api/cars/:id` | 👑 Admin | Update car |
-| `DELETE` | `/api/cars/:id` | 👑 Admin | Delete car |
-| `PATCH` | `/api/cars/:id/availability` | 👑 Admin | Toggle availability |
+| `POST` | `/api/cars` |    Admin | Add new car |
+| `PUT` | `/api/cars/:id` |    Admin | Update car |
+| `DELETE` | `/api/cars/:id` |   Admin | Delete car |
+| `PATCH` | `/api/cars/:id/availability` |  Admin | Toggle availability |
 
 #### Car Filter Query Params
 ```
@@ -272,33 +272,33 @@ GET /api/cars?search=toyota&category_id=1&min_price=30&max_price=100&available=t
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
 | `GET` | `/api/categories` | Public | List all categories |
-| `POST` | `/api/categories` | 👑 Admin | Create category |
-| `PUT` | `/api/categories/:id` | 👑 Admin | Update category |
-| `DELETE` | `/api/categories/:id` | 👑 Admin | Delete category |
+| `POST` | `/api/categories` |   Admin | Create category |
+| `PUT` | `/api/categories/:id` |   Admin | Update category |
+| `DELETE` | `/api/categories/:id` |   Admin | Delete category |
 
 ### Bookings
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
-| `POST` | `/api/bookings` | 🔐 Customer | Create booking |
-| `GET` | `/api/bookings/my-bookings` | 🔐 Customer | Own bookings |
-| `GET` | `/api/bookings` | 👑 Admin | All bookings |
-| `PUT` | `/api/bookings/:id/status` | 👑 Admin | Approve/Reject/Cancel |
-| `DELETE` | `/api/bookings/:id` | 🔐 Auth | Cancel (customer) / Delete (admin) |
+| `POST` | `/api/bookings` |   Customer | Create booking |
+| `GET` | `/api/bookings/my-bookings` |   Customer | Own bookings |
+| `GET` | `/api/bookings` |   Admin | All bookings |
+| `PUT` | `/api/bookings/:id/status` |   Admin | Approve/Reject/Cancel |
+| `DELETE` | `/api/bookings/:id` |   Auth | Cancel (customer) / Delete (admin) |
 
 ### Users
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
-| `GET` | `/api/users` | 👑 Admin | List all users |
-| `PUT` | `/api/users/:id` | 🔐 Auth | Update profile/role |
+| `GET` | `/api/users` |  Admin | List all users |
+| `PUT` | `/api/users/:id` |  Auth | Update profile/role |
 
 ### Dashboard
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
-| `GET` | `/api/dashboard/summary` | 👑 Admin | Aggregated statistics |
+| `GET` | `/api/dashboard/summary` |  Admin | Aggregated statistics |
 
 ---
 
-## 🗄️ Database Schema
+##  Database Schema
 
 ### ER Diagram Description
 
@@ -354,7 +354,7 @@ categories (1) ─< cars (many)       [cars.category_id → categories.id]
 
 ---
 
-## 🔐 Authentication Flow
+##  Authentication Flow
 
 ```
 1. Customer registers  →  POST /api/auth/register
@@ -369,7 +369,7 @@ categories (1) ─< cars (many)       [cars.category_id → categories.id]
 
 ---
 
-## 📋 Booking Price Calculation
+##  Booking Price Calculation
 
 ```
 Total Price = Daily Price × Number of Days
@@ -383,7 +383,7 @@ Example:
 
 ---
 
-## 🪵 Logger Middleware
+##  Logger Middleware
 
 Every HTTP request is logged to the console:
 ```
@@ -395,7 +395,7 @@ Every HTTP request is logged to the console:
 
 ---
 
-## 🎯 Key Implementation Concepts Demonstrated
+##  Key Implementation Concepts Demonstrated
 
 | Concept | Implementation |
 |---------|---------------|
@@ -414,7 +414,7 @@ Every HTTP request is logged to the console:
 
 ---
 
-## 📄 License
+##  License
 
 MIT License – Free to use for educational purposes.
 
