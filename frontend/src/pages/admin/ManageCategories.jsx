@@ -81,14 +81,16 @@ const ManageCategories = () => {
 
           {loading ? <div className="loading-center"><div className="spinner" /></div> : (
             <div className="grid-3">
-              {categories.map(cat => (
-                <div key={cat.id} className="glass-card animate-fade-in" style={{ padding: '1.5rem' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>
-                    {catIcons[cat.name] || '🚗'}
-                  </div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
-                    {cat.name}
-                  </div>
+              {categories.map(cat => {
+                const IconComponent = catIcons[cat.name] || Car;
+                return (
+                  <div key={cat.id} className="glass-card animate-fade-in" style={{ padding: '1.5rem' }}>
+                    <div style={{ color: 'var(--primary)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center' }}>
+                      <IconComponent size={32} />
+                    </div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
+                      {cat.name}
+                    </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
                     ID: {cat.id}
                   </div>
@@ -97,7 +99,8 @@ const ManageCategories = () => {
                     <button className="btn btn-danger btn-sm" onClick={() => handleDelete(cat.id)}>Delete</button>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>
