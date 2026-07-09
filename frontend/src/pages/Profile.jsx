@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Save, Lock } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 import toast from 'react-hot-toast';
@@ -101,7 +102,7 @@ const Profile = () => {
               </div>
             </div>
             <button type="submit" className="btn btn-primary" disabled={saving}>
-              {saving ? <><div className="spinner spinner-sm" /> Saving...</> : '💾 Save Changes'}
+              {saving ? <><div className="spinner spinner-sm" /> Saving...</> : <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Save size={16} /> Save Changes</span>}
             </button>
           </form>
         </div>
@@ -135,7 +136,7 @@ const Profile = () => {
               </div>
             </div>
             <button type="submit" className="btn btn-primary" disabled={savingPw}>
-              {savingPw ? <><div className="spinner spinner-sm" /> Updating...</> : '🔒 Update Password'}
+              {savingPw ? <><div className="spinner spinner-sm" /> Updating...</> : <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Lock size={16} /> Update Password</span>}
             </button>
           </form>
         </div>

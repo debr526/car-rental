@@ -67,12 +67,12 @@ const Home = () => {
           </div>
           <div className="grid-3">
             {[
-              { icon: '⚡', title: 'Instant Booking', desc: 'Reserve your car in seconds with our streamlined booking system.' },
-              { icon: '🔒', title: 'Secure & Trusted', desc: 'Your data is encrypted and protected with industry-standard security.' },
-              { icon: '🌟', title: 'Premium Fleet', desc: 'Choose from economy, luxury, SUVs, sports cars and more.' },
-              { icon: '📱', title: 'Easy Management', desc: 'View and manage all your bookings from your personal dashboard.' },
-              { icon: '💰', title: 'Best Prices', desc: 'Competitive daily rates with transparent pricing and no hidden fees.' },
-              { icon: '🎯', title: 'Smart Filtering', desc: 'Find exactly what you need with powerful search and filter tools.' },
+              { icon: <Zap size={24} />, title: 'Instant Booking', desc: 'Reserve your car in seconds with our streamlined booking system.' },
+              { icon: <Lock size={24} />, title: 'Secure & Trusted', desc: 'Your data is encrypted and protected with industry-standard security.' },
+              { icon: <Star size={24} />, title: 'Premium Fleet', desc: 'Choose from economy, luxury, SUVs, sports cars and more.' },
+              { icon: <Smartphone size={24} />, title: 'Easy Management', desc: 'View and manage all your bookings from your personal dashboard.' },
+              { icon: <TrendingUp size={24} />, title: 'Best Prices', desc: 'Competitive daily rates with transparent pricing and no hidden fees.' },
+              { icon: <Sliders size={24} />, title: 'Smart Filtering', desc: 'Find exactly what you need with powerful search and filter tools.' },
             ].map((f, i) => (
               <div key={i} className="glass-card" style={{ padding: '2rem' }}>
                 <div style={{ color: 'var(--primary)', marginBottom: '1rem' }}>{f.icon}</div>

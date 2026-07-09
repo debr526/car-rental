@@ -49,28 +49,28 @@ const CustomerDashboard = () => {
         {/* Stats */}
         <div className="grid-4 mb-4">
           <div className="stat-card">
-            <div className="stat-icon stat-icon-purple">📋</div>
+            <div className="stat-icon stat-icon-purple"><ClipboardList size={24} /></div>
             <div>
               <div className="stat-value">{total}</div>
               <div className="stat-label">Total Bookings</div>
             </div>
           </div>
           <div className="stat-card">
-            <div className="stat-icon stat-icon-green">🗓️</div>
+            <div className="stat-icon stat-icon-green"><Calendar size={24} /></div>
             <div>
               <div className="stat-value">{upcoming}</div>
               <div className="stat-label">Upcoming Trips</div>
             </div>
           </div>
           <div className="stat-card">
-            <div className="stat-icon stat-icon-amber">⏳</div>
+            <div className="stat-icon stat-icon-amber"><Clock size={24} /></div>
             <div>
               <div className="stat-value">{pending}</div>
               <div className="stat-label">Pending Approval</div>
             </div>
           </div>
           <div className="stat-card">
-            <div className="stat-icon stat-icon-cyan">✅</div>
+            <div className="stat-icon stat-icon-cyan"><CheckCircle size={24} /></div>
             <div>
               <div className="stat-value">{completed}</div>
               <div className="stat-label">Completed</div>
@@ -81,14 +81,14 @@ const CustomerDashboard = () => {
         {/* Quick Actions */}
         <div className="grid-2 mb-4">
           <Link to="/cars" className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'center', cursor: 'pointer' }}>
-            <span style={{ fontSize: '2rem' }}>🚗</span>
+            <span style={{ fontSize: '2rem', display: 'flex' }}><Car size={32} /></span>
             <div>
               <div style={{ fontWeight: 700, marginBottom: '0.25rem' }}>Browse Cars</div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>View available vehicles and make a booking</div>
             </div>
           </Link>
           <Link to="/my-bookings" className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'center', cursor: 'pointer' }}>
-            <span style={{ fontSize: '2rem' }}>📖</span>
+            <span style={{ fontSize: '2rem', display: 'flex' }}><BookOpen size={32} /></span>
             <div>
               <div style={{ fontWeight: 700, marginBottom: '0.25rem' }}>My Bookings</div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>View history and manage reservations</div>

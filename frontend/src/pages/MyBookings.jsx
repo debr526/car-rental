@@ -78,10 +78,10 @@ const MyBookings = () => {
                   <div style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
                     {b.brand} {b.model} <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: '0.8rem' }}>{b.year}</span>
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
-                    📅 {new Date(b.start_date).toLocaleDateString()} → {new Date(b.end_date).toLocaleDateString()}
-                    {' · '}
-                    🏷️ {b.category_name}
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                    <Calendar size={14} /> {new Date(b.start_date).toLocaleDateString()} → {new Date(b.end_date).toLocaleDateString()}
+                    <span style={{ margin: '0 0.25rem' }}>·</span>
+                    <Tag size={14} /> {b.category_name}
                   </div>
                   <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
                     <span style={{ color: 'var(--primary-light)', fontWeight: 700 }}>

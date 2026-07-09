@@ -4,11 +4,11 @@ import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
 const navItems = [
-  { to: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
-  { to: '/admin/cars', icon: '🚗', label: 'Manage Cars' },
-  { to: '/admin/categories', icon: '🏷️', label: 'Categories' },
-  { to: '/admin/bookings', icon: '📋', label: 'Bookings' },
-  { to: '/admin/users', icon: '👥', label: 'Users' },
+  { to: '/admin/dashboard', icon: <LayoutDashboard size={20} />, label: 'Dashboard' },
+  { to: '/admin/cars', icon: <Car size={20} />, label: 'Manage Cars' },
+  { to: '/admin/categories', icon: <Tag size={20} />, label: 'Categories' },
+  { to: '/admin/bookings', icon: <ClipboardList size={20} />, label: 'Bookings' },
+  { to: '/admin/users', icon: <Users size={20} />, label: 'Users' },
 ];
 
 const Sidebar = () => {
