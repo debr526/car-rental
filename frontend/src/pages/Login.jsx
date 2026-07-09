@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Car, AlertTriangle, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -30,7 +31,7 @@ const Login = () => {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-logo">
-          <div className="brand-icon">🚗</div>
+          <div className="brand-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}><Car size={20} /></div>
           <span style={{ fontWeight: 800, fontSize: '1.25rem' }}>QuickReserve</span>
         </div>
         <h1 className="auth-title">Welcome back</h1>
@@ -42,7 +43,7 @@ const Login = () => {
             borderRadius: 'var(--radius-md)', padding: '0.75rem 1rem',
             color: 'var(--danger)', fontSize: '0.875rem', marginBottom: '1rem'
           }}>
-            ⚠️ {error}
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><AlertTriangle size={16} /> {error}</span>
           </div>
         )}
 

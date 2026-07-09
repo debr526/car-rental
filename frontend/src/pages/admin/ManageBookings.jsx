@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ClipboardList } from 'lucide-react';
 import Sidebar from '../../components/Sidebar';
 import api from '../../services/api';
 import toast from 'react-hot-toast';
@@ -74,7 +75,7 @@ const ManageBookings = () => {
           {loading ? <div className="loading-center"><div className="spinner" /></div> : (
             filtered.length === 0 ? (
               <div className="empty-state glass-card" style={{ padding: '3rem' }}>
-                <div className="empty-icon">📋</div>
+                <div className="empty-icon" style={{ display: 'flex', justifyContent: 'center', color: 'var(--text-muted)' }}><ClipboardList size={48} /></div>
                 <h3>No {filter !== 'all' ? filter : ''} bookings</h3>
               </div>
             ) : (

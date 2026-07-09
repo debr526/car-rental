@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Calendar } from 'lucide-react';
 
 const CarCard = ({ car }) => {
   const fallbackImg = `https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600`;
@@ -21,7 +22,7 @@ const CarCard = ({ car }) => {
 
       <div className="car-card-body">
         <div className="car-card-title">{car.brand} {car.model}</div>
-        <div className="car-card-year">📅 {car.year}</div>
+        <div className="car-card-year"><span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}><Calendar size={14} /> {car.year}</span></div>
 
         {car.description && (
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '0.5rem' }}>
@@ -31,7 +32,7 @@ const CarCard = ({ car }) => {
 
         <div className="car-card-footer">
           <div className="price-tag">
-            <span className="price-amount">${parseFloat(car.daily_price).toFixed(0)}</span>
+            <span className="price-amount">{parseFloat(car.daily_price).toFixed(0)} ETB</span>
             <span className="price-period">/day</span>
           </div>
           <Link

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Car } from 'lucide-react';
 import api from '../services/api';
 import CarCard from '../components/CarCard';
 import FilterPanel from '../components/FilterPanel';
@@ -44,7 +45,7 @@ const Cars = () => {
           <div className="loading-center"><div className="spinner" /></div>
         ) : cars.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-icon">🚗</div>
+            <div className="empty-icon" style={{ display: 'flex', justifyContent: 'center', color: 'var(--text-muted)' }}><Car size={48} /></div>
             <h3>No cars found</h3>
             <p>Try adjusting your filters to see more results.</p>
           </div>

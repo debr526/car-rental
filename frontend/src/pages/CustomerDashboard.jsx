@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ClipboardList, Calendar, Clock, CheckCircle, Car, BookOpen } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 
@@ -37,7 +38,7 @@ const CustomerDashboard = () => {
           }}>{initials}</div>
           <div>
             <h1 style={{ fontSize: '1.75rem', fontWeight: 800 }}>
-              Welcome back, <span className="gradient-text">{user?.full_name?.split(' ')[0]}</span>! 👋
+              Welcome back, <span className="gradient-text">{user?.full_name?.split(' ')[0]}</span>!
             </h1>
             <p style={{ color: 'var(--text-muted)', marginTop: '0.25rem' }}>
               {user?.email} · Customer Account
@@ -106,7 +107,7 @@ const CustomerDashboard = () => {
             <div className="loading-center"><div className="spinner" /></div>
           ) : bookings.length === 0 ? (
             <div className="empty-state">
-              <div className="empty-icon">📋</div>
+              <div className="empty-icon" style={{ display: 'flex', justifyContent: 'center', color: 'var(--text-muted)' }}><ClipboardList size={48} /></div>
               <h3>No bookings yet</h3>
               <p>Browse our fleet and make your first reservation!</p>
               <Link to="/cars" className="btn btn-primary" style={{ marginTop: '1rem' }}>Browse Cars</Link>
@@ -129,7 +130,7 @@ const CustomerDashboard = () => {
                         {b.brand} {b.model} <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: '0.8rem' }}>({b.year})</span>
                       </td>
                       <td>{new Date(b.start_date).toLocaleDateString()} → {new Date(b.end_date).toLocaleDateString()}</td>
-                      <td style={{ color: 'var(--primary-light)', fontWeight: 700 }}>${parseFloat(b.total_price).toFixed(2)}</td>
+                      <td style={{ color: 'var(--primary-light)', fontWeight: 700 }}>{parseFloat(b.total_price).toFixed(0)} ETB</td>
                       <td><span className={`badge badge-${b.booking_status}`}>{b.booking_status}</span></td>
                     </tr>
                   ))}

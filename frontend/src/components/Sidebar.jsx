@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
+import { LayoutDashboard, Car, Tag, ClipboardList, Users, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -27,7 +28,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <div className="sidebar-logo">🚗</div>
+        <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}><Car size={20} /></div>
         <div>
           <div className="sidebar-brand">QuickReserve</div>
           <div className="sidebar-subtitle">Admin Panel</div>
@@ -40,9 +41,9 @@ const Sidebar = () => {
           <NavLink
             key={item.to}
             to={item.to}
-            className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
+            className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
           >
-            <span className="sidebar-icon">{item.icon}</span>
+            <span className="sidebar-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>{item.icon}</span>
             {item.label}
           </NavLink>
         ))}
@@ -57,7 +58,7 @@ const Sidebar = () => {
           </div>
         </div>
         <button onClick={handleLogout} className="btn btn-danger btn-sm btn-full">
-          🚪 Logout
+          <><LogOut size={16} /> Logout</>
         </button>
       </div>
     </aside>

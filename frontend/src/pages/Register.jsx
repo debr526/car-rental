@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Car, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -37,7 +38,7 @@ const Register = () => {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-logo">
-          <div className="brand-icon">🚗</div>
+          <div className="brand-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}><Car size={20} /></div>
           <span style={{ fontWeight: 800, fontSize: '1.25rem' }}>QuickReserve</span>
         </div>
         <h1 className="auth-title">Create your account</h1>
@@ -49,7 +50,7 @@ const Register = () => {
             borderRadius: 'var(--radius-md)', padding: '0.75rem 1rem',
             color: 'var(--danger)', fontSize: '0.875rem', marginBottom: '1rem'
           }}>
-            ⚠️ {error}
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><AlertTriangle size={16} /> {error}</span>
           </div>
         )}
 
@@ -59,7 +60,7 @@ const Register = () => {
             <input
               type="text"
               className="form-input"
-              placeholder="John Smith"
+              placeholder="Enter your full name"
               value={form.full_name}
               onChange={e => setForm({ ...form, full_name: e.target.value })}
               required
@@ -103,7 +104,7 @@ const Register = () => {
           </div>
 
           <button type="submit" className="btn btn-primary btn-full btn-lg" disabled={loading}>
-            {loading ? <><div className="spinner spinner-sm" /> Creating Account...</> : '🚀 Create Account'}
+            {loading ? <><div className="spinner spinner-sm" /> Creating Account...</> : 'Create Account'}
           </button>
         </form>
 

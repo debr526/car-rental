@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Calendar, Check, X } from 'lucide-react';
 import api from '../services/api';
 import toast from 'react-hot-toast';
 
@@ -32,7 +33,7 @@ const BookingForm = ({ car }) => {
         start_date: startDate,
         end_date: endDate,
       });
-      toast.success('🎉 Booking created! Awaiting admin approval.');
+      toast.success('Booking created! Awaiting admin approval.');
       setStartDate('');
       setEndDate('');
     } catch (err) {
@@ -45,7 +46,7 @@ const BookingForm = ({ car }) => {
   return (
     <div className="booking-form">
       <h3 style={{ fontSize: '1.125rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--text-primary)' }}>
-        📅 Reserve This Car
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}><Calendar size={18} /> Reserve This Car</span>
       </h3>
       <form onSubmit={handleSubmit}>
         <div className="grid-2 mb-3">
@@ -77,7 +78,7 @@ const BookingForm = ({ car }) => {
           <div className="booking-summary mb-3">
             <div className="booking-summary-row">
               <span style={{ color: 'var(--text-secondary)' }}>Daily Rate</span>
-              <span>${parseFloat(car.daily_price).toFixed(2)}</span>
+              <span>{parseFloat(car.daily_price).toFixed(0)} ETB</span>
             </div>
             <div className="booking-summary-row">
               <span style={{ color: 'var(--text-secondary)' }}>Duration</span>
@@ -85,7 +86,7 @@ const BookingForm = ({ car }) => {
             </div>
             <div className="booking-summary-row total">
               <span>Total Price</span>
-              <span>${totalPrice}</span>
+              <span>{parseFloat(totalPrice).toFixed(0)} ETB</span>
             </div>
           </div>
         )}
@@ -98,7 +99,7 @@ const BookingForm = ({ car }) => {
           {loading ? (
             <><div className="spinner spinner-sm" /> Processing...</>
           ) : (
-            car.availability_status ? '🚗 Confirm Booking' : '❌ Car Unavailable'
+            car.availability_status ? <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}><Check size={18} /> Confirm Booking</span> : <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}><X size={18} /> Car Unavailable</span>
           )}
         </button>
       </form>

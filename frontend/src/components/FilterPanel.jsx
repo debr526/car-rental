@@ -1,3 +1,5 @@
+import { Search } from 'lucide-react';
+
 const FilterPanel = ({ filters, onChange, categories }) => {
   const handleChange = (key, value) => {
     onChange({ ...filters, [key]: value });
@@ -13,7 +15,7 @@ const FilterPanel = ({ filters, onChange, categories }) => {
       <div className="form-group" style={{ flex: 2, minWidth: 180 }}>
         <label className="form-label">Search</label>
         <div style={{ position: 'relative' }}>
-          <span style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}>🔍</span>
+          <span style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', display: 'flex', alignItems: 'center' }}><Search size={16} /></span>
           <input
             type="text"
             className="form-input"
@@ -48,7 +50,7 @@ const FilterPanel = ({ filters, onChange, categories }) => {
           className="form-input"
           value={filters.min_price}
           onChange={e => handleChange('min_price', e.target.value)}
-          placeholder="$0"
+          placeholder="ETB 0"
           min="0"
         />
       </div>
@@ -61,7 +63,7 @@ const FilterPanel = ({ filters, onChange, categories }) => {
           className="form-input"
           value={filters.max_price}
           onChange={e => handleChange('max_price', e.target.value)}
-          placeholder="$999"
+          placeholder="ETB 999"
           min="0"
         />
       </div>

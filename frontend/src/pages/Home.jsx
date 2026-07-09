@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Car, Zap, Lock, Star, Smartphone, TrendingUp, Sliders, ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 import CarCard from '../components/CarCard';
@@ -34,7 +35,7 @@ const Home = () => {
           </p>
           <div className="hero-buttons">
             <Link to="/cars" className="btn btn-primary btn-lg">
-              🚗 Browse Cars
+              <><Car size={18} /> Browse Cars</>
             </Link>
             <Link to="/register" className="btn btn-secondary btn-lg">
               Get Started Free
@@ -74,7 +75,7 @@ const Home = () => {
               { icon: '🎯', title: 'Smart Filtering', desc: 'Find exactly what you need with powerful search and filter tools.' },
             ].map((f, i) => (
               <div key={i} className="glass-card" style={{ padding: '2rem' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{f.icon}</div>
+                <div style={{ color: 'var(--primary)', marginBottom: '1rem' }}>{f.icon}</div>
                 <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>{f.title}</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6 }}>{f.desc}</p>
               </div>
@@ -100,7 +101,7 @@ const Home = () => {
           )}
 
           <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <Link to="/cars" className="btn btn-primary btn-lg">View All Cars →</Link>
+            <Link to="/cars" className="btn btn-primary btn-lg"><><span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>View All Cars <ArrowRight size={18} /></span></></Link>
           </div>
         </div>
       </section>

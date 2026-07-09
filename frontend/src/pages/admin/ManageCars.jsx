@@ -165,7 +165,7 @@ const ManageCars = () => {
                     <input type="number" className="form-input" value={form.year} onChange={e => setForm({...form, year: e.target.value})} required min="1900" max="2100" />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Daily Price ($) *</label>
+                    <label className="form-label">Daily Price (ETB) *</label>
                     <input type="number" step="0.01" className="form-input" value={form.daily_price} onChange={e => setForm({...form, daily_price: e.target.value})} required min="0.01" />
                   </div>
                 </div>

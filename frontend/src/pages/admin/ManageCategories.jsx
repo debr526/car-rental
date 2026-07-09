@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { DollarSign, Car, Compass, Crown, Zap, Bus } from 'lucide-react';
 import Sidebar from '../../components/Sidebar';
 import api from '../../services/api';
 import toast from 'react-hot-toast';
@@ -56,7 +57,14 @@ const ManageCategories = () => {
     }
   };
 
-  const catIcons = { Economy: '💰', Compact: '🚗', SUV: '🚙', Luxury: '👑', Sports: '🏎️', Van: '🚌' };
+  const catIcons = {
+    Economy: DollarSign,
+    Compact: Car,
+    SUV: Compass,
+    Luxury: Crown,
+    Sports: Zap,
+    Van: Bus
+  };
 
   return (
     <div className="admin-layout">

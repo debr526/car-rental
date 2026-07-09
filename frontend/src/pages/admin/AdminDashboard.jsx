@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar';
+import { Car, CheckCircle, Users, ClipboardList, Clock, Check } from 'lucide-react';
 import api from '../../services/api';
 
 const AdminDashboard = () => {
@@ -41,7 +42,7 @@ const AdminDashboard = () => {
               <div className="grid-3 mb-4">
                 {stats.map((s, i) => (
                   <div key={i} className="stat-card animate-fade-in">
-                    <div className={`stat-icon ${s.colorClass}`}>{s.icon}</div>
+                    <div className={`stat-icon ${s.colorClass}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{s.icon}</div>
                     <div>
                       <div className="stat-value">{s.value}</div>
                       <div className="stat-label">{s.label}</div>

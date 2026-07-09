@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Calendar, ArrowLeft } from 'lucide-react';
 import api from '../services/api';
 import BookingForm from '../components/BookingForm';
 import { useAuth } from '../context/AuthContext';
@@ -27,7 +28,7 @@ const CarDetails = () => {
     <div className="main-content">
       <div className="container" style={{ paddingTop: '3rem', paddingBottom: '4rem' }}>
         <button onClick={() => navigate('/cars')} className="btn btn-secondary btn-sm mb-4">
-          ← Back to Fleet
+          <><ArrowLeft size={16} /> Back to Fleet</>
         </button>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: '2.5rem', alignItems: 'start' }}>
@@ -50,10 +51,10 @@ const CarDetails = () => {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 <div>
                   <h1 style={{ fontSize: '2rem', fontWeight: 800 }}>{car.brand} {car.model}</h1>
-                  <p style={{ color: 'var(--text-muted)', marginTop: '0.25rem' }}>📅 Year: {car.year}</p>
+                  <p style={{ color: 'var(--text-muted)', marginTop: '0.25rem' }}><span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}><Calendar size={16} /> Year: {car.year}</span></p>
                 </div>
                 <span className={`badge ${car.availability_status ? 'badge-available' : 'badge-unavailable'}`}>
-                  {car.availability_status ? '✓ Available' : '✗ Unavailable'}
+                  {car.availability_status ? 'Available' : 'Unavailable'}
                 </span>
               </div>
 
@@ -64,7 +65,7 @@ const CarDetails = () => {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Daily Rate</div>
-                  <div style={{ fontWeight: 800, color: 'var(--primary-light)', fontSize: '1.25rem' }}>${parseFloat(car.daily_price).toFixed(2)}</div>
+                  <div style={{ fontWeight: 800, color: 'var(--primary-light)', fontSize: '1.25rem' }}>{parseFloat(car.daily_price).toFixed(0)} ETB</div>
                 </div>
               </div>
 
@@ -84,7 +85,7 @@ const CarDetails = () => {
           {/* Right: Booking */}
           <div style={{ position: 'sticky', top: 'calc(var(--navbar-height) + 1.5rem)' }}>
             <div className="price-tag mb-3">
-              <span className="price-amount">${parseFloat(car.daily_price).toFixed(0)}</span>
+              <span className="price-amount">{parseFloat(car.daily_price).toFixed(0)} ETB</span>
               <span className="price-period">/day</span>
             </div>
             {user ? (

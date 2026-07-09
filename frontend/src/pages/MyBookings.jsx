@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ClipboardList, Calendar, Tag } from 'lucide-react';
 import api from '../services/api';
 import toast from 'react-hot-toast';
 
@@ -59,7 +60,7 @@ const MyBookings = () => {
           <div className="loading-center"><div className="spinner" /></div>
         ) : filtered.length === 0 ? (
           <div className="empty-state glass-card" style={{ padding: '4rem' }}>
-            <div className="empty-icon">📋</div>
+            <div className="empty-icon" style={{ display: 'flex', justifyContent: 'center', color: 'var(--text-muted)' }}><ClipboardList size={48} /></div>
             <h3>No {filter !== 'all' ? filter : ''} bookings found</h3>
             <p>Your booking history will appear here.</p>
           </div>

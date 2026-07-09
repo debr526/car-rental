@@ -19,8 +19,9 @@ VALUES (
 -- Sample customers
 INSERT INTO users (full_name, email, password_hash, role)
 VALUES
-    ('John Smith',    'john@example.com',  '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQyCgUCWlOaRrZ6GAmqc8KRdG', 'customer'),
-    ('Sarah Johnson', 'sarah@example.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQyCgUCWlOaRrZ6GAmqc8KRdG', 'customer')
+    ('Abel Tesfaye',  'abel@example.com',  '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQyCgUCWlOaRrZ6GAmqc8KRdG', 'customer'),
+    ('Yosef Bekele',  'yosef@example.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQyCgUCWlOaRrZ6GAmqc8KRdG', 'customer'),
+    ('Nati Alemu',    'nati@example.com',  '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQyCgUCWlOaRrZ6GAmqc8KRdG', 'customer')
 ON CONFLICT (email) DO NOTHING;
 
 -- ============================================================
@@ -108,7 +109,7 @@ ON CONFLICT DO NOTHING;
 INSERT INTO bookings (user_id, car_id, start_date, end_date, total_price, booking_status)
 VALUES
     (
-        (SELECT id FROM users WHERE email = 'john@example.com'),
+        (SELECT id FROM users WHERE email = 'abel@example.com'),
         (SELECT id FROM cars WHERE brand = 'Toyota' AND model = 'Corolla'),
         CURRENT_DATE + 5,
         CURRENT_DATE + 8,
@@ -116,7 +117,7 @@ VALUES
         'approved'
     ),
     (
-        (SELECT id FROM users WHERE email = 'sarah@example.com'),
+        (SELECT id FROM users WHERE email = 'yosef@example.com'),
         (SELECT id FROM cars WHERE brand = 'BMW' AND model = '5 Series'),
         CURRENT_DATE + 2,
         CURRENT_DATE + 5,
@@ -124,7 +125,7 @@ VALUES
         'pending'
     ),
     (
-        (SELECT id FROM users WHERE email = 'john@example.com'),
+        (SELECT id FROM users WHERE email = 'abel@example.com'),
         (SELECT id FROM cars WHERE brand = 'Honda' AND model = 'Civic'),
         CURRENT_DATE - 10,
         CURRENT_DATE - 7,
