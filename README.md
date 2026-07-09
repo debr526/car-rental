@@ -145,7 +145,7 @@ The project follows the MVC pattern:
 * **Models** handle database operations.
 * **Controllers** contain business logic.
 * **Routes** define API endpoints.
-* **Views/Client** are implemented using React.
+* The **View** layer is implemented using React components.
 
 This separation helps keep the application organized and maintainable.
 
@@ -290,7 +290,7 @@ These endpoints are consumed by the React frontend through Axios.
 1. User registers or logs in.
 2. Password is hashed using bcrypt.
 3. JWT token is generated.
-4. Token is stored on the client side.
+4. Token is stored in localStorage on the client side and automatically attached to API requests via Axios interceptors.
 5. Protected routes verify the token.
 6. Authorization middleware checks user roles.
 
