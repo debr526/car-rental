@@ -256,9 +256,9 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=quickreserve_db
 DB_USER=postgres
-DB_PASSWORD=your_password
+DB_PASSWORD=newpasswors123
 
-JWT_SECRET=your_secret_key
+JWT_SECRET=secret_key
 JWT_EXPIRES_IN=7d
 ```
 
