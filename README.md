@@ -326,6 +326,9 @@ In addition to the concepts covered in class, the project includes:
 * Responsive user interface
 
 ---
+## Links
+The Main Website (Frontend): http://localhost:5173 
+The Backend API: http://localhost:5000
 
 ## Future Improvements
 
