@@ -12,7 +12,7 @@ INSERT INTO users (full_name, email, password_hash, role)
 VALUES (
     'QuickReserve Admin',
     'admin@quickreserve.com',
-    '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQyCgUCWlOaRrZ6GAmqc8KRdG',
+    '$2a$12$wwjvTzCypM4MpYUwykBiAuzx91Fl2Zn/hmnqDw9LX3gusa4nYfLXe',
     'admin'
 ) ON CONFLICT (email) DO NOTHING;
 

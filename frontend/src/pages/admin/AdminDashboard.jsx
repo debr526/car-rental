@@ -13,14 +13,14 @@ const AdminDashboard = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const stats = summary ? [
-    { icon: '🚗', label: 'Total Cars', value: summary.totalCars, colorClass: 'stat-icon-purple' },
-    { icon: '✅', label: 'Available Cars', value: summary.availableCars, colorClass: 'stat-icon-green' },
-    { icon: '👥', label: 'Total Customers', value: summary.totalUsers, colorClass: 'stat-icon-cyan' },
-    { icon: '📋', label: 'Total Bookings', value: summary.totalBookings, colorClass: 'stat-icon-amber' },
-    { icon: '⏳', label: 'Pending Bookings', value: summary.pendingBookings, colorClass: 'stat-icon-red' },
-    { icon: '✔️', label: 'Approved', value: summary.bookingsByStatus?.approved || 0, colorClass: 'stat-icon-green' },
-  ] : [];
+  const stats = [
+    { icon: '🚗', label: 'Total Cars', value: summary?.totalCars || 0, colorClass: 'stat-icon-purple' },
+    { icon: '✅', label: 'Available Cars', value: summary?.availableCars || 0, colorClass: 'stat-icon-green' },
+    { icon: '👥', label: 'Total Customers', value: summary?.totalUsers || 0, colorClass: 'stat-icon-cyan' },
+    { icon: '📋', label: 'Total Bookings', value: summary?.totalBookings || 0, colorClass: 'stat-icon-amber' },
+    { icon: '⏳', label: 'Pending Bookings', value: summary?.pendingBookings || 0, colorClass: 'stat-icon-red' },
+    { icon: '✔️', label: 'Approved', value: summary?.bookingsByStatus?.approved || 0, colorClass: 'stat-icon-green' },
+  ];
 
   return (
     <div className="admin-layout">

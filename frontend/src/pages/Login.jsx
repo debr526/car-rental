@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
     try {
-      const data = await login(form.email, form.password);
+      const data = await login(form.email.trim(), form.password);
       toast.success(`Welcome back, ${data.user.full_name.split(' ')[0]}!`);
       navigate(data.user.role === 'admin' ? '/admin/dashboard' : from, { replace: true });
     } catch (err) {
