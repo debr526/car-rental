@@ -4,7 +4,7 @@
 
 ---
 
-## 📸 Features at a Glance
+##  Features at a Glance
 
 | Feature | Description |
 |---------|-------------|
@@ -240,7 +240,7 @@ Password: Admin123
 Role:     admin
 ```
 
-> ⚠️ The password is stored as a **bcrypt hash** in the database via the seed script.
+> The password is stored as a **bcrypt hash** in the database via the seed script.
 
 ---
 
@@ -413,11 +413,3 @@ Every HTTP request is logged to the console:
 | Frontend-Backend | React SPA consuming REST API via Axios |
 
 ---
-
-##  License
-
-MIT License – Free to use for educational purposes.
-
----
-
-*Built for Web Programming II Final Project Capstone – QuickReserve Car Rental Management System*
